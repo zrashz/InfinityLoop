@@ -1,0 +1,86 @@
+body {
+  background: #1e1b1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+[class^=particle] {
+  position: absolute;
+  animation: inf-anim 4.5s infinite linear;
+  border: 1px solid #33d39d;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  opacity: 0;
+}
+
+.particle:nth-child(1) {
+  animation-delay: 0.25s;
+}
+
+.particle:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.particle:nth-child(3) {
+  animation-delay: 0.75s;
+}
+
+.particle:nth-child(4) {
+  animation-delay: 1s;
+}
+
+.particle:nth-child(5) {
+  animation-delay: 1.25s;
+}
+
+.particle:nth-child(6) {
+  animation-delay: 1.5s;
+}
+
+.particle:nth-child(7) {
+  animation-delay: 1.75s;
+}
+
+.particle:nth-child(8) {
+  animation-delay: 2s;
+}
+
+.particle:nth-child(9) {
+  animation-delay: 2.25s;
+}
+
+.particle:nth-child(10) {
+  animation-delay: 2.5s;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 180deg;
+  inherits: true;
+}
+@keyframes inf-anim {
+  0% {
+    --angle: 180deg;
+    --radius: 200px;
+    translate: calc(cos(var(--angle)) * var(--radius)) calc(sin(var(--angle)) * var(--radius) * -1);
+    opacity: 1;
+  }
+  50% {
+    --angle: 0deg;
+    --radius: 200px;
+    translate: calc(cos(var(--angle)) * var(--radius)) calc(sin(var(--angle)) * var(--radius) * 1);
+    opacity: 1;
+  }
+  100% {
+    --angle: -180deg;
+    --radius: 200px;
+    translate: calc(cos(var(--angle)) * var(--radius) ) calc(sin(var(--angle)) * var(--radius) * -1);
+    opacity: 1;
+  }
+}
